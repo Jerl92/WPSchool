@@ -1,12 +1,10 @@
 # WPSchool
 
+<img src="https://i.ibb.co/rtLFmG9/Dashboard.png" />
+
 ## Description
 
 WordPress School Management System
-
-## Screenshoot
-
-<img src="https://i.ibb.co/rtLFmG9/Dashboard.png" />
 
 ## Installation
 

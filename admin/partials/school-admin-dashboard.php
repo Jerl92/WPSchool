@@ -5,7 +5,7 @@
     <?php
         echo '<div class="grid">';
             echo '<div class="grid-item">';
-                echo '</br>Grade</br>';
+                echo '</br><b>Grade</b></br>';
                 $terms = get_terms('grade');
                 if ($terms) {
                     foreach ($terms as $term) {
@@ -44,7 +44,7 @@
             echo '</div>';
 
             echo '<div class="grid-item">';
-                echo '</br>Groupe</br>';
+                echo '</br><b>Groupe</b></br>';
                 $terms = get_terms('grade');
                 if ($terms) {
                     foreach ($terms as $term) {
@@ -77,6 +77,30 @@
                     }
                 }
             echo '</div>';
+
+            echo '<div class="grid-item">';
+                echo '</br><b>User</b></br>';
+
+                foreach (get_editable_roles() as $role_name => $role_info) {
+
+                    echo $role_name;
+                    $args = array(
+                        'role'    => $role_name,
+                        'orderby' => 'user_nicename',
+                        'order'   => 'ASC'
+                    );
+                    $users = get_users( $args );
+                    
+                    echo '<ul>';
+                    foreach ( $users as $user ) {
+                        echo '<li> - ' . esc_html( $user->display_name ) . '[' . esc_html( $user->user_email ) . ']</li>';
+                    }
+                    echo '</ul>';
+
+                }
+
+            echo '</div>';
+
         echo '</div>';
     ?>
 <?php }

@@ -1,7 +1,8 @@
 jQuery(document).ready(function ($) {
     var $grid = $('.grid').packery({
+        columnWidth: 100,
         itemSelector: '.grid-item',
-        columnWidth: 250
+        percentPosition: true
     });
       
       // make all grid-items draggable

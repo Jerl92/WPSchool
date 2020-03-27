@@ -16,10 +16,7 @@
   
 .grid-item {
     float: left;
-}
-
-.grid-sizer, .grid-item {
-    width: 250px;
+    width: 25%;
 }
   
 .grid-item:hover {
