@@ -2,3 +2,34 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+.grid {
+
+}
+  
+  /* clearfix */
+.grid:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+  
+.grid-item {
+    float: left;
+}
+
+.grid-sizer, .grid-item {
+    width: 250px;
+}
+  
+.grid-item:hover {
+    border-color: white;
+    cursor: move;
+}
+
+.packery-drop-placeholder {
+    outline: 3px dashed hsla(0, 0%, 0%, 0.5);
+    outline-offset: -6px;
+    -webkit-transition: -webkit-transform 0.2s;
+            transition: transform 0.2s;
+}

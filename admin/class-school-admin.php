@@ -98,6 +98,12 @@ class School_Admin {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/school-admin.js', array( 'jquery' ), $this->version, false );
 
+		wp_enqueue_script( 'packery.pkgd', plugin_dir_url( __FILE__ ) . 'js/packery.pkgd.js', array( 'jquery' ), $this->version, false );
+		
+		wp_enqueue_script( 'draggabilly.pkgd', plugin_dir_url( __FILE__ ) . 'js/draggabilly.pkgd.js', array( 'packery.pkgd' ), $this->version, false );
+
+		wp_enqueue_script( 'packery', plugin_dir_url( __FILE__ ) . 'js/packery.js', array( 'draggabilly.pkgd' ), $this->version, false );
+
 	}
 
 }
