@@ -4,19 +4,17 @@
  */
 
 .grid {
-
-}
-  
-  /* clearfix */
-.grid:after {
-    content: ' ';
-    display: block;
-    clear: both;
+    width: 100%;
 }
   
 .grid-item {
     float: left;
-    width: 25%;
+    width: 22.5%;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    background: #fff;
+    padding: 0 12px 11px;
+    margin-bottom: 7.5px;
 }
   
 .grid-item:hover {
@@ -29,4 +27,19 @@
     outline-offset: -6px;
     -webkit-transition: -webkit-transform 0.2s;
             transition: transform 0.2s;
+}
+
+.grid-item .postbox>h3, .grid-item .stuffbox>h3, .grid-item h2.hndle, .grid-item h3.hndle {
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 0;
+    line-height: 1.4;
+    margin-bottom: 7.5px;
+}
+
+.grid .hndle {
+    border-bottom: 1px solid #ccd0d4;
+    margin-bottom: 20px;
+    padding: 0;
+    line-height: 1;
 }

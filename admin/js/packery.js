@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
     var $grid = $('.grid').packery({
-        columnWidth: 100,
+        columnWidth: 25,
         itemSelector: '.grid-item',
         percentPosition: true
     });

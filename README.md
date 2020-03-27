@@ -1,6 +1,6 @@
 # WPSchool
 
-<img src="https://i.ibb.co/rtLFmG9/Dashboard.png" />
+<img src="https://i.ibb.co/cNQVmgv/screencapture-jerl92-tk-me-wp-admin-admin-php-2020-03-27-03-29-04.png" />
 
 ## Description
 

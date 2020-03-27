@@ -5,7 +5,7 @@
     <?php
         echo '<div class="grid">';
             echo '<div class="grid-item">';
-                echo '</br><b>Grade</b></br>';
+                echo '<h2 class="hndle ui-sortable-handle"><span>Grade</span></h2>';
                 $terms = get_terms('grade');
                 if ($terms) {
                     foreach ($terms as $term) {
@@ -16,11 +16,11 @@
                             continue;
                         }
                         // We successfully got a link. Print it out.
-                        echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
+                        echo '<span><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></span></br>';
 
                         $posts_array = get_posts(
                             array(
-                                'posts_per_page' => 1,
+                                'posts_per_page' => -1,
                                 'post_type' => 'classes',
                                 'tax_query' => array(
                                     array(
@@ -32,19 +32,23 @@
                             )
                         );
 
+                        $terms_allready = array();
                         foreach ($posts_array as $post) {
                             $terms = get_the_terms( $post->ID, 'classescat' );
                             foreach ( $terms as $term ) {
-                                echo '<li><a href="' .  get_term_link($term) . '">' . $term->name . '</a></li>';
+                                if (!in_array($term->slug, $terms_allready)) {
+                                    array_push( $terms_allready, $term->slug );
+                                    echo '<span> - <a href="' .  get_term_link($term) . '">' . $term->name . '</a></span></br>';
+                                }
                             }
                         }
-
+                        echo '</br>';
                     }
                 }
             echo '</div>';
 
             echo '<div class="grid-item">';
-                echo '</br><b>Groupe</b></br>';
+                echo '<h2 class="hndle ui-sortable-handle"><span>Groupe</span></h2>';
                 $terms = get_terms('grade');
                 if ($terms) {
                     foreach ($terms as $term) {
@@ -68,22 +72,23 @@
                             $get_users_in_group = get_post_meta($group->ID, "_user_in_group", true);
                             echo $group->post_title;
                             echo '</br>';
-                            foreach ($get_users_in_group as $user) {
-                                echo $user;
+
+                            foreach ($get_users_in_group as $user_id) {
+                                $user = get_user_by('id', $user_id);
+                                echo $user->user_nicename;
                                 echo ' - ';
                             }
                             echo '</br>';
+
                         }
                     }
                 }
             echo '</div>';
 
             echo '<div class="grid-item">';
-                echo '</br><b>User</b></br>';
-
+                echo '<h2 class="hndle ui-sortable-handle"><span>User</span></h2>';
                 foreach (get_editable_roles() as $role_name => $role_info) {
 
-                    echo $role_name;
                     $args = array(
                         'role'    => $role_name,
                         'orderby' => 'user_nicename',
@@ -92,8 +97,9 @@
                     $users = get_users( $args );
                     
                     echo '<ul>';
+                    echo $role_name;
                     foreach ( $users as $user ) {
-                        echo '<li> - ' . esc_html( $user->display_name ) . '[' . esc_html( $user->user_email ) . ']</li>';
+                        echo '<li> - ' . esc_html( $user->display_name ) . '</li>';
                     }
                     echo '</ul>';
 
