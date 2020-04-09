@@ -119,8 +119,6 @@ class School {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/school-groups.php';
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/school-metabox.php';
-
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
@@ -129,6 +127,8 @@ class School {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/school-admin-menu.php';
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/school-admin-dashboard.php';
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/school-admin-metabox.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing

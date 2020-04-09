@@ -136,6 +136,7 @@ function classes_post_type() {
 		'label'                 => __( 'Schedule', 'school' ),
 		'description'           => __( 'Schedules', 'school' ),
 		'labels'                => $labels,
+		'show_in_rest'			=> true,
 		'supports'              => array( 'title', 'page-attributes' ),
 		'taxonomies'            => array( 'classescat', 'grade' ),
 		'hierarchical'          => false,
